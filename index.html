@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>腕立てカウンター</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main>
+        <div class="container" id="gameScreen">
+            <h1>腕立てカウンター</h1>
+            <div id="count">0</div>
+            <p id="reminder">残り時間<span  id="timer">10</span>秒</p>
+            <button id="countBtn"></button>
+            <button id="startBtn">スタート</button>
+            <p id="consume">消費カロリー<span id="calories">0</span>kcal</p>
+        </div>
+        
+        <div class="container" id="resultScreen">
+            <h1>お疲れ様でした!</h1>
+            <h2>結果</h2>
+            <p>今回の記録 :<span id="currentScore"></span>回</p>
+            <p>最高記録 :<span id="bestScore"></span>回</p>
+            <h3>過去の記録一覧</h3>
+            <ul id="recordList"></ul>
+            <button id="backBtn">戻る</button>
+        </div>
+    </main>
+    <script src="main.js"></script>
+</body>
+</html>
