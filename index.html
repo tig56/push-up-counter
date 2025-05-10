@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>腕立てカウンター</title>
     <link rel="stylesheet" href="style.css">
+    <audio id="startBtnSound" src="メニューを開く2.mp3" preload="auto"></audio>
+    <audio id="countBtnSound" src="決定ボタンを押す3.mp3" preload="auto"></audio>
+    <audio id="resultSound" src="メニューを開く3.mp3" preload="auto"></audio>
 </head>
 <body>
     <main>
@@ -22,6 +25,7 @@
             <h2>結果</h2>
             <p>今回の記録 :<span id="currentScore"></span>回</p>
             <p>最高記録 :<span id="bestScore"></span>回</p>
+            <p>消費カロリー : <span id="currentCalories"></span>kcal</p>
             <h3>過去の記録一覧</h3>
             <ul id="recordList"></ul>
             <button id="backBtn">戻る</button>
