@@ -133,7 +133,6 @@
     }
 
     startBtn.addEventListener('click', startGame);
-    countBtn.addEventListener('click', countUp);
     countBtn.addEventListener('touchstart', countUp);
     backBtn.addEventListener('click', back);
 }
