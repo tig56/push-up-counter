@@ -56,6 +56,9 @@
     }
 
     function countUp() {
+        if (countBtn.disabled){
+            return;
+        }
         count++;
         timeLeft = 11;
         calories += 0.42;
@@ -133,6 +136,12 @@
     }
 
     startBtn.addEventListener('click', startGame);
-    countBtn.addEventListener('touchstart', countUp);
+    document.body.addEventListener('touchstart', (e) => {
+        if(!e.target.closest('#startBtn') && !e.target.closest('#backBtn')) {
+            if (!countBtn.disabled) {
+                countUp();
+            }
+        }
+    });
     backBtn.addEventListener('click', back);
 }
