@@ -5,6 +5,7 @@
     let timeLeft = 10;
     let timerId;
     let calories = 0;
+    let touchHandled = false;
 
     const countEl = document.getElementById('count');
     const timerEl = document.getElementById('timer');
@@ -37,7 +38,7 @@
         startBtnSound.volume = 1.0;
         startBtnSound.play().catch(error => {
             console.error("音声の再生に失敗しました:", error);
-        });;
+        });
 
         countBtn.disabled = false;
         startBtn.disabled = true;
@@ -67,7 +68,7 @@
         countBtnSound.volume = 1.0;
         countBtnSound.play().catch(error => {
             console.error("音声の再生に失敗しました:", error);
-        });;
+        });
         caloriesEl.textContent = calories.toFixed(2);
     }
 
@@ -76,7 +77,7 @@
         resultSound.volume = 1.0;
         resultSound.play().catch(error => {
             console.error("音声の再生に失敗しました:", error);
-        });;
+        });
 
         clearInterval(timerId);
         countBtn.disabled = true;
@@ -103,7 +104,7 @@
         bestScoreEl.textContent = maxScore;
 
         recordListEl.innerHTML = '';
-        records.slice().reverse().forEach((record ,indexReversed) => {
+        records.slice().reverse().forEach((record, indexReversed) => {
             const index = records.length - 1 - indexReversed;
             const li = document.createElement('li');
             li.textContent = `${record.date} : ${record.score}回`;
@@ -118,7 +119,6 @@
 
             li.appendChild(delBtn);
             recordListEl.appendChild(li);
-
         });
     }
 
@@ -136,12 +136,29 @@
     }
 
     startBtn.addEventListener('click', startGame);
+
     document.body.addEventListener('touchstart', (e) => {
-        if(!e.target.closest('#startBtn') && !e.target.closest('#backBtn')) {
+        if (!e.target.closest('#startBtn') && !e.target.closest('#backBtn')) {
+            if (!countBtn.disabled) {
+                countUp();
+                touchHandled = true;
+                setTimeout(() => {
+                    touchHandled = false;
+                }, 500);
+            }
+        }
+    });
+
+    document.body.addEventListener('click', (e) => {
+        if (touchHandled) {
+            return; // 直前にtouchで処理済みなら無視
+        }
+        if (!e.target.closest('#startBtn') && !e.target.closest('#backBtn')) {
             if (!countBtn.disabled) {
                 countUp();
             }
         }
     });
+
     backBtn.addEventListener('click', back);
 }
