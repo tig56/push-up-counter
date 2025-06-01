@@ -1,12 +1,30 @@
-# React + Vite
+# アプリ名
+腕立てカウンターアプリ
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 概要
+JavaScriptで作成した、簡単操作の「腕立て伏せカウンター」アプリです。
+カウント・時間・消費カロリーを自動で記録し、ローカルストレージに保存されます。  
+記録の一覧表示・削除も可能です。
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 特徴
+- 10秒間のチャレンジタイム中に、腕立ての回数をカウント
+- 消費カロリーを自動計算（1回あたり0.42 kcal）
+- タップまたはクリックでカウント（モバイル対応）
+- ゲーム終了後はスコアと日付が記録され、履歴一覧で表示
+- ローカルストレージで記録を永続化
+- 音声フィードバック（スタート音・カウント音）
 
-## Expanding the ESLint configuration
+## スクリーンショット
+![image](https://github.com/user-attachments/assets/ec3175a0-a303-4955-9687-4d63ed959b13)
+![image](https://github.com/user-attachments/assets/da6aefe8-dee0-48fe-9f5c-b55a16d93a67)
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+## 使用技術
+- JavaScript
+- HTML/CSS（レスポンシブ対応）
+
+##　リンク先
+https://tig56.github.io/push-up-counter/
